@@ -27,6 +27,9 @@ for($i = 1; $i <= 45; $i++){
 	echo $query;
 	try{
 		$a = $sql->query($query);
+		echo "<p>$a</p>";
+		if($sql->connect_errno)
+			die("Query failed: " . $sql->connect_error);
 	} catch (Exception $e) {
 		echo $e->getMessage();
 		echo "---";
