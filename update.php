@@ -10,7 +10,8 @@ echo "</pre>"; // */
 $sql = new mysqli("159.203.93.30:3306", "root", "x9fN#DXy", "LeagueData");
 if($sql->connect_errno)
 	die("Connection to MySQL database failed: " . $sql->connect_error);
-$sql->query("DELETE FROM PlayerStats; DELETE FROM Player;");
+$a = $sql->query("DELETE FROM PlayerStats; DELETE FROM Player;");
+echo $a;
 if($sql->connect_errno)
 	die("Delete failed: " . $sql->connect_error);
 
@@ -27,7 +28,8 @@ for($i = 1; $i <= 45; $i++){
 	$query = "INSERT INTO Player VALUES($i, " . intval(($i-1)/5+1) . ", \"$fname\", \"$lname\", \"$hometown\", \"$position\");";
 	echo $query;
 	try{
-		$sql->query($query);
+		$a = $sql->query($query);
+		echo $a;
 		if($sql->connect_errno)
 			die("Query failed: " . $sql->connect_error);
 	} catch(Exception $err){
