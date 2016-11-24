@@ -11,6 +11,8 @@ $sql = new mysqli("localhost:3306", "root", "x9fN#DXy", "LeagueData");
 if($sql->connect_errno)
 	die("Connection to MySQL database failed: " . $sql->connect_error);
 $sql->query("DELETE FROM PlayerStats; DELETE FROM Player;");
+if($sql->connect_errno)
+	die("Delete failed: " . $sql->connect_error);
 
 for($i = 1; $i <= 45; $i++){
 	$j = rand(0, count($playerlist['resultSets'][0]['rowSet']));
@@ -26,6 +28,8 @@ for($i = 1; $i <= 45; $i++){
 	echo $query;
 	try{
 		$sql->query($query);
+		if($sql->connect_errno)
+			die("Query failed: " . $sql->connect_error);
 	} catch(Exception $err){
 		die("Query $query failed: $err");
 	}
