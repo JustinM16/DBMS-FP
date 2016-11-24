@@ -1086,11 +1086,11 @@
 	}
 
 	h1 {
-		text-transform: none;
+		text-transform: lowercase;
 	}
 
 	h2 {
-		text-transform: none;
+		text-transform: lowercase;
 		font-size: 1.6em;
 		letter-spacing: -1px;
 		margin-bottom: 1em;
@@ -1195,7 +1195,7 @@
 		padding: 15px 25px 15px 25px;
 		background-color: #007b9d;
 		border-radius: 10px;
-		text-transform: none;
+		text-transform: lowercase;
 		text-decoration: none;
 		color: #fff;
 		font-size: 1.2em;
@@ -1306,7 +1306,7 @@
 					right: 40px;
 					top: 1px;
 					line-height: 84px;
-					text-transform: none;
+					text-transform: lowercase;
 					font-size: 1.3em;
 					letter-spacing: -1px;
 				}
@@ -1382,7 +1382,7 @@
 					color: #fff;
 					text-align: center;
 					letter-spacing: -1px;
-					text-transform: none;
+					text-transform: lowercase;
 					opacity: 0.8;
 				}
 
@@ -1608,7 +1608,7 @@
 					color: #fff;
 					text-align: center;
 					letter-spacing: -1px;
-					text-transform: none;
+					text-transform: lowercase;
 					opacity: 0.8;
 				}
 
