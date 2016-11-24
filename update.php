@@ -7,7 +7,7 @@ $playerlist = json_decode($playerlist, true);
 print_r($obj);
 echo "</pre>"; // */
 
-$sql = new mysqli("localhost", "root", "", "LeagueData");
+$sql = new mysqli("localhost", "root", "x9fN#DXy", "LeagueData");
 if($sql->connect_errno)
 	die("Connection to MySQL database failed: " . $sql->connect_error);
 $a = $sql->query("DELETE FROM PlayerStats;");
