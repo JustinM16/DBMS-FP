@@ -23,7 +23,7 @@ for($i = 1; $i <= 45; $i++){
 	$lname = explode(", ", $playerlist['resultSets'][0]['rowSet'][$j][1])[0];
 	$hometown = $playerinfo['resultSets'][0]['rowSet'][0][7];
 	$position = $playerinfo['resultSets'][0]['rowSet'][0][14];
-	$query = 'INSERT INTO Player(TeamNo, Fname, Lname, Hometown, Position) VALUES(' . intval(($i-1)/5+1) . ', \'' . $fname .  '\', \'' . $lname . '\', \'' . $hometown . '\', \'' .$position.'\');';
+	$query = 'INSERT INTO Player(TeamNo, Fname, Lname, College, Position) VALUES(' . intval(($i-1)/5+1) . ', \'' . $fname .  '\', \'' . $lname . '\', \'' . $hometown . '\', \'' .$position.'\');';
 	echo $query;
 	try{
 		$a = $sql->query($query);
