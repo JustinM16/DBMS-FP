@@ -11,7 +11,7 @@ $sql = new mysqli("localhost", "root", "x9fN#DXy", "LeagueData");
 if($sql->connect_errno)
 	die("Connection to MySQL database failed: " . $sql->connect_error);
 $a = $sql->query("DELETE FROM PlayerStats; DELETE FROM Player;");
-var_dump(echo $a->fetch_assoc());
+var_dump($a->fetch_assoc());
 if($sql->connect_errno)
 	die("Delete failed: " . $sql->connect_error);
 
