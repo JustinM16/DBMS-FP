@@ -8,7 +8,7 @@ print_r($obj);
 echo "</pre>"; // */
 
 $sql = new mysqli("localhost:3306", "root", "x9fN#DXy", "LeagueData");
-if($sql->connect_error)
+if($sql->connect_errno)
 	die("Connection to MySQL database failed: " . $sql->connect_error);
 $sql->query("DELETE FROM PlayerStats; DELETE FROM Player;");
 
