@@ -25,11 +25,10 @@
 								<nav id="nav">
 									<a href="IntroPage.html">Introduction</a>
 									<a href="MakeTeamPage.html">Make A Team</a>
-									<a href="JoinTeamPage.html"class="current-page-item">Join A Team</a>
+									<a href="JoinTeamPage.php"class="current-page-item">Join A Team</a>
 									<a href="MatchSchedulePage.html">Match Schedule</a>
 								</nav>
 							</header>
-
 
 						</div>
 					</div>
@@ -41,18 +40,23 @@
 						<div class="8u 12u(mobile)">
 
 							<section class="left-content">
-								<form action="" method="POST">
-                                    Team Member Name: <input type="text" name="TeamMemName" />
-									<br>
-                                    <br>
-									Team Name: <input type="text" name="TeamName" />
-									<br>
-									<br>
-									Team Number: <input type="text" name="SportName" />
-									<br>
-									<br>
-									<input type="submit" name="join" value="Join"/>
-								</form>
+								<?php
+									$sql = new mysqli("localhost", "root", "x9fN#DXy", "LeagueData");
+									if($sql->connect_errno)
+										die("Connection to MySQL database failed: " . $sql->connect_error);
+									$query = "SELECT TeamRank, TeamName, Wins, Losses FROM Standings, Team WHERE Standings.TeamNo = Team.TeamNo";
+
+									$result = $sql->query($query);
+
+									if ($result->num_rows > 0){
+										while($row = $result->fetch_assoc()){
+											echo "Rank: " . $row["TeamRank"] . " - TeamName: " . $row["TeamName"] . " - Wins: " . $row["Wins"] . " - Losses: " . $row["Losses"]. "<br>";
+										}
+									} else {
+										echo "0 results";
+									}
+									
+								?>
 							</section>
 							<section class="right-content">
 	
