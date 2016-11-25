@@ -50,7 +50,7 @@
 
 									if ($result->num_rows > 0){
 										while($row = $result->fetch_assoc()){
-											echo "Rank: " . $row["TeamRank"] . " - TeamName: " . "<a href="ViewPlayers.php">" . $row["TeamName"] . "</a>>" . " - Wins: " . $row["Wins"] . " - Losses: " . $row["Losses"]. "<br>";
+											echo "Rank: " . $row["TeamRank"] . " - TeamName: " . "<a href="ViewPlayers.php">" . $row["TeamName"] . "</a>" . " - Wins: " . $row["Wins"] . " - Losses: " . $row["Losses"]. "<br>";
 										}
 									} else {
 										echo "0 results";
