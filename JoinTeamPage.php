@@ -25,7 +25,7 @@
 								<nav id="nav">
 									<a href="IntroPage.html">Introduction</a>
 									<a href="MakeTeamPage.html">Make A Team</a>
-									<a href="JoinTeamPage.php"class="current-page-item">Join A Team</a>
+									<a href="JoinTeamPage.php" class="current-page-item">Team Ranks</a>
 									<a href="MatchSchedulePage.html">Match Schedule</a>
 								</nav>
 							</header>
@@ -44,7 +44,7 @@
 									$sql = new mysqli("localhost", "root", "x9fN#DXy", "LeagueData");
 									if($sql->connect_errno)
 										die("Connection to MySQL database failed: " . $sql->connect_error);
-									$query = "SELECT TeamRank, TeamName, Wins, Losses FROM Standings, Team WHERE Standings.TeamNo = Team.TeamNo";
+									$query = "SELECT TeamRank, TeamName, Wins, Losses FROM Standings, Team WHERE Standings.TeamNo = Team.TeamNo ORDER BY TeamRank ASC";
 
 									$result = $sql->query($query);
 
