@@ -46,6 +46,18 @@
 									$sql = new mysqli("localhost", "root", "x9fN#DXy", "LeagueData");
 									if($sql->connect_errno)
 										die("Connection to MySQL database failed: " . $sql->connect_error);
+								?>
+
+
+									<tr>
+										<th>Rank</th>
+										<th>Team</th>
+										<th>Wins</th>
+										<th>Losses</th>
+									</tr>
+
+
+								<?php
 									$query = "SELECT TeamRank, TeamName, Wins, Losses FROM Standings, Team WHERE Standings.TeamNo = Team.TeamNo ORDER BY Wins DESC";
 
 									$result = $sql->query($query);
@@ -57,7 +69,14 @@
 											}else{
 												$y = 0;
 											}
-											echo "Rank: " . ($x++ - $y) . " - TeamName: " . $row["TeamName"] . " - Wins: " . $row["Wins"] . " - Losses: " . $row["Losses"]. "<br>";
+								?>
+								<tr>
+									<td><?php echo ($x++ - $y); ?></td>
+									<td><?php echo $row["TeamName"];?></td>
+									<td><?php echo $row["Wins"];?></td>
+									<td><?php echo $row["Losses"];?></td>
+								</tr>
+								<?php
 											$wins = $row["Wins"];
 										}
 									} else {
