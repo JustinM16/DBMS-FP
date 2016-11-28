@@ -41,17 +41,24 @@
 
 							<section class="left-content">
 								<?php
-									$x = 0;
+									$x = 1;
+									$y = 0;
 									$sql = new mysqli("localhost", "root", "x9fN#DXy", "LeagueData");
 									if($sql->connect_errno)
 										die("Connection to MySQL database failed: " . $sql->connect_error);
 									$query = "SELECT TeamRank, TeamName, Wins, Losses FROM Standings, Team WHERE Standings.TeamNo = Team.TeamNo ORDER BY Wins DESC";
 
 									$result = $sql->query($query);
-
+									$wins = 0;
 									if ($result->num_rows > 0){
 										while($row = $result->fetch_assoc()){
-											echo "Rank: " . $x++ . " - TeamName: " . $row["TeamName"] . " - Wins: " . $row["Wins"] . " - Losses: " . $row["Losses"]. "<br>";
+											if ($wins == $row["Wins"]){
+												$y++;
+											}else{
+												$y = 0;
+											}
+											echo "Rank: " . ($x++ - $y) . " - TeamName: " . $row["TeamName"] . " - Wins: " . $row["Wins"] . " - Losses: " . $row["Losses"]. "<br>";
+											$wins = $row["Wins"];
 										}
 									} else {
 										echo "0 results";
