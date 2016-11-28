@@ -38,7 +38,7 @@
 								<nav id="nav">
 									<a href="IntroPage.html">Introduction</a>
 									<a href="MakeTeamPage.html">Make A Team</a>
-									<a href="JoinTeamPage.php">Current Team Rankings</a>
+									<a href="CurrTeamRanks.php">Current Team Rankings</a>
 									<a href="MatchSchedulePage.php" class="current-page-item">Match Schedule</a>
 								</nav>
 							</header>
@@ -73,18 +73,18 @@
 											while($row = mysqli_fetch_assoc($result)) :
 									?>
 										<tr>
-											<td><?php echo $row['MatchNo']?></td>
-											<td><?php echo $row['GameTime']?></td>
+											<td><?=$row['MatchNo']?></td>
+											<td><?=$row['GameTime']?></td>
 											<?php
 												$hresult = mysqli_fetch_array(mysqli_query($sql, "Select TeamName, City from Team where TeamNo=" . $row['HomeTeamNo']));
 												$vresult = mysqli_fetch_array(mysqli_query($sql, "Select TeamName from Team where TeamNo=" . $row['VisitorTeamNo']));
 												$lresult = mysqli_fetch_array(mysqli_query($sql, "Select ArenaName, Address, City from Arena where ArenaNo=" . $row['Arena']));
 												$wresult = mysqli_fetch_array(mysqli_query($sql, "Select TeamName from Team where TeamNo=" . $row['WinningTeamNo']));
 											?>
-											<td><?php echo $hresult['City']?> <?php echo $hresult['TeamName']?></td>
-											<td><?php echo $vresult['TeamName']?></td>
-											<td><?php echo $lresult['ArenaName']?>: <?php echo $lresult['Address']?>, <?php echo $lresult['City']?></td>
-											<td><?php echo $wresult['TeamName']?></td>
+											<td><?=$hresult['City']?> <?=$hresult['TeamName']?></td>
+											<td><?=$vresult['TeamName']?></td>
+											<td><?=$lresult['ArenaName']?>: <?=$lresult['Address']?>, <?=$lresult['City']?></td>
+											<td><?=$wresult['TeamName']?></td>
 										</tr>
 									<?php endwhile; ?>
 								</table>
