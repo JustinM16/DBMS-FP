@@ -25,11 +25,18 @@ for($i = 1; $i <= 45; $i++){
 	$lname = explode(", ", $playerlist['resultSets'][0]['rowSet'][$j][1])[0];
 	$college = $playerinfo['resultSets'][0]['rowSet'][0][7];
 	$position = $playerinfo['resultSets'][0]['rowSet'][0][14];
-	$query = 'INSERT INTO Player(PlayerID, TeamNo, Fname, Lname, College, Position) VALUES('.$i.', ' . intval(($i-1)/5+1) . ', \'' . str_replace("'", "\\'", $fname) .  '\', \'' . str_replace("'", "\\'", $lname) . '\', \'' . str_replace("'", "\\'", $college) . '\', \'' .str_replace("'", "\\'", $position).'\');';
-	echo $query;
+	$points = $playerinfo['resultSets'][1]['rowSet'][0][3];
+	$assists = $playerinfo['resultSets'][1]['rowSet'][0][4];
+	$games = $playerinfo['resultSets'][0]['rowSet'][0][12];
+	$playerQuery = 'INSERT INTO Player(PlayerID, TeamNo, Fname, Lname, College, Position) VALUES('.$i.', ' . intval(($i-1)/5+1) . ', \'' . str_replace("'", "\\'", $fname) .  '\', \'' . str_replace("'", "\\'", $lname) . '\', \'' . str_replace("'", "\\'", $college) . '\', \'' .str_replace("'", "\\'", $position).'\');';
+	$scoreQuery = "INSERT INTO PlayerStats(PlayerID, TotalPoints, TotalAssists, GamesPlayed) VALUES($i, $points, $assists, $games);";
+	echo $playerQuery;
+	echo "<br>";
+	echo $scoreQuery;
 	try{
-		$a = $sql->query($query);
-		echo "<p>$a</p>";
+		$a = $sql->query($playerQuery);
+		$b = $sql->query($scoreQuery);
+		echo "<p>$a, $b</p>";
 		if($sql->connect_errno)
 			die("Query failed: " . $sql->connect_error);
 	} catch (Exception $e) {
