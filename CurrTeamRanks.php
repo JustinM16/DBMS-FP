@@ -41,6 +41,7 @@
 
 							<section class="left-content">
 								<?php
+									$x = 0;
 									$sql = new mysqli("localhost", "root", "x9fN#DXy", "LeagueData");
 									if($sql->connect_errno)
 										die("Connection to MySQL database failed: " . $sql->connect_error);
@@ -50,7 +51,7 @@
 
 									if ($result->num_rows > 0){
 										while($row = $result->fetch_assoc()){
-											echo "Rank: " . $row["TeamRank"] . " - TeamName: " . $row["TeamName"] . " - Wins: " . $row["Wins"] . " - Losses: " . $row["Losses"]. "<br>";
+											echo "Rank: " . $x++ . " - TeamName: " . $row["TeamName"] . " - Wins: " . $row["Wins"] . " - Losses: " . $row["Losses"]. "<br>";
 										}
 									} else {
 										echo "0 results";
