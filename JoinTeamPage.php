@@ -26,7 +26,7 @@
 									<a href="IntroPage.html">Introduction</a>
 									<a href="MakeTeamPage.html">Make A Team</a>
 									<a href="CurrTeamRank.php" class="current-page-item">Current Team Rankings</a>
-									<a href="MatchSchedulePage.html">Match Schedule</a>
+									<a href="MatchSchedulePage.php">Match Schedule</a>
 								</nav>
 							</header>
 
