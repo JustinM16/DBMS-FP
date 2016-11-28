@@ -71,10 +71,10 @@
 											}
 								?>
 								<tr>
-									<td><?php echo ($x++ - $y); ?></td>
-									<td><?php echo $row["TeamName"];?></td>
-									<td><?php echo $row["Wins"];?></td>
-									<td><?php echo $row["Losses"];?></td>
+									<td><?=($x++ - $y)?></td>
+									<td><?=$row["TeamName"]?></td>
+									<td><?=$row["Wins"]?></td>
+									<td><?=$row["Losses"]?></td>
 								</tr>
 								<?php
 											$wins = $row["Wins"];
