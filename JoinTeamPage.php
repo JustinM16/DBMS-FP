@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Make your own Team</title>
+		<title>Check out the latest and updated Team Rankings!</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -25,7 +25,6 @@
 								<nav id="nav">
 									<a href="IntroPage.html">Introduction</a>
 									<a href="MakeTeamPage.html">Make A Team</a>
-									<a href="JoinTeamPage.php" class="current-page-item">Team Ranks</a>
 									<a href="MatchSchedulePage.html">Match Schedule</a>
 								</nav>
 							</header>
