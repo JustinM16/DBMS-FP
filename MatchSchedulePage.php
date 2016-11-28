@@ -73,18 +73,18 @@
 											while($row = mysqli_fetch_assoc($result)) :
 									?>
 										<tr>
-											<td><?=$row['MatchNo']?></td>
-											<td><?=$row['GameTime']?></td>
+											<td><?php echo $row['MatchNo']?></td>
+											<td><?php echo $row['GameTime']?></td>
 											<?php
 												$hresult = mysqli_fetch_array(mysqli_query($sql, "Select TeamName from Team where TeamNo=" . $row['HomeTeamNo']));
 												$vresult = mysqli_fetch_array(mysqli_query($sql, "Select TeamName from Team where TeamNo=" . $row['VisitorTeamNo']));
 												$lresult = mysqli_fetch_array(mysqli_query($sql, "Select ArenaName, Address, City from Arena where ArenaNo=" . $row['Arena']));
 												$wresult = mysqli_fetch_array(mysqli_query($sql, "Select TeamName from Team where TeamNo=" . $row['WinningTeamNo']));
 											?>
-											<td><?=$hresult['TeamName']?></td>
-											<td><?=$vresult['TeamName']?></td>
-											<td><?=$lresult['ArenaName']?>: <?=$lresult['Address']?>, <?=$lresult['City']?></td>
-											<td><?=$wresult['TeamName']?></td>
+											<td><?php echo $hresult['TeamName']?></td>
+											<td><?php echo $vresult['TeamName']?></td>
+											<td><?php echo $lresult['ArenaName']?>: <?php echo $lresult['Address']?>, <?php echo $lresult['City']?></td>
+											<td><?php echo $wresult['TeamName']?></td>
 										</tr>
 									<?php endwhile; ?>
 								</table>
