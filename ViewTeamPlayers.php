@@ -66,7 +66,7 @@
 										$result = $sql->query($query);
 										if ($result->num_rows > 0){
 											while($row = $result->fetch_assoc()){
-												if ($row['TeamName'] = $_GET["submit"]){
+												if ($row['TeamName'] == $_GET["submit"]){
 												echo $row['Fname'] . ' ' . $row['Lname'] . '  College: ' . $row['College'] . '  Position: ' . $row['Position'] . '  Total Points: ' . $row['TotalPoints'];
 												echo "<br>";
 												}
