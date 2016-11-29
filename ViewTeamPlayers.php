@@ -59,7 +59,7 @@
 										if($sql->connect_errno)
 											die("Connection to MySQL database failed: " . $sql->connect_error);
 									
-										$query = "SELECT Fname, Lname, College, Position, TotalPoints, TotalAssists, GamesPlayed, TeamName FROM Player, Team, PlayerStats WHERE PlayerStats.PlayerID = Player.PlayerID AND Team.TeamNo = Player.TeamNo AND Team.TeamName LIKE '".$_GET['submit']."'";
+										$query = "SELECT Fname, Lname, College, Position, TotalPoints, TotalAssists, GamesPlayed, TeamName FROM Player, Team, PlayerStats WHERE PlayerStats.PlayerID = Player.PlayerID AND Team.TeamNo = Player.TeamNo AND Team.TeamName LIKE '%".$_GET['submit']."%'";
 										?>
 										<tr>
 											<th>Name</th>
