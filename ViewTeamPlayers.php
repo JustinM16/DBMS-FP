@@ -60,18 +60,8 @@
 										$sql = new mysqli("localhost", "root", "x9fN#DXy", "LeagueData");
 										if($sql->connect_errno)
 											die("Connection to MySQL database failed: " . $sql->connect_error);
-									?>
-
-										<tr>
-											<th>First Name</th>
-											<th>Last Name</th>
-											<th>College</th>
-											<th>Position</th>
-										</tr>
-
-
-									<?php
-										$query = "SELECT Fname, Lname, College, Poistion, TotalPoints, TotalAssists, GamesPlayed FROM Player, Team, PlayerStats WHERE PlayerStats.PlayerID == Player.PlayerID";
+									
+										$query = "SELECT Fname, Lname, College, Poistion, TotalPoints, TotalAssists, GamesPlayed FROM Player, Team, PlayerStats WHERE PlayerStats.PlayerID = Player.PlayerID";
 
 										$result = $sql->query($query);
 										if ($result->num_rows > 0){
