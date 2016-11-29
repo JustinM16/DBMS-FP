@@ -55,21 +55,35 @@
 							<section class="left-content">
 								<table>
 									<?php
-										echo $_GET["submit"];
-										echo "<br>";
-
 										$sql = new mysqli("localhost", "root", "x9fN#DXy", "LeagueData");
 										if($sql->connect_errno)
 											die("Connection to MySQL database failed: " . $sql->connect_error);
 									
 										$query = "SELECT Fname, Lname, College, Position, TotalPoints, TotalAssists, GamesPlayed, TeamName FROM Player, Team, PlayerStats WHERE PlayerStats.PlayerID = Player.PlayerID AND Team.TeamNo = Player.TeamNo AND Team.TeamName LIKE '".$_GET['submit']."'";
+										?>
+										<tr>
+											<th>Name</th>
+											<th>College</th>
+											<th>Position</th>
+											<th>Total Points</th>
+											<th>Total Assists</th>
+											<th>Games Played</th>
+										</tr>
 
+										<?php
 										$result = $sql->query($query);
 										if ($result->num_rows > 0){
 											while($row = $result->fetch_assoc()){
-												echo $row['Fname'] . ' ' . $row['Lname'] . '  College: ' . $row['College'] . '  Position: ' . $row['Position'] . '  Total Points: ' . $row['TotalPoints'] . '      TeamName: '. $row['TeamName'];
-												echo "<br>";
-												
+										?>
+											<tr>
+												<td><?php echo $row['Fname'] . ' ' . $row['Lname']; ?></td>
+												<td><?php echo $row['College'];?></td>
+												<td><?php echo $row['Position'];?></td>
+												<td><?php echo $row['TotalPoints'];?></td>
+												<td><?php echo $row['TotalAssists'];?></td>
+												<td><?php echo $row['GamesPlayed'];?></td>
+											</tr>	
+										<?php
 											}
 										}
 									?>
