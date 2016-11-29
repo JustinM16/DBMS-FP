@@ -55,21 +55,22 @@
 							<section class="left-content">
 								<table>
 									<?php
-										echo $_GET["submit"];
-										$T = $_GET["submit"];
-										$Team = mysql_real_escape_string($T);
+										echo $_GET["submit"];	
 
 										$sql = new mysqli("localhost", "root", "x9fN#DXy", "LeagueData");
 										if($sql->connect_errno)
 											die("Connection to MySQL database failed: " . $sql->connect_error);
 									
-										$query = "SELECT Fname, Lname, College, Position, TotalPoints, TotalAssists, GamesPlayed FROM Player, Team, PlayerStats WHERE PlayerStats.PlayerID = Player.PlayerID AND Team.TeamName = '" . $Team . "'";
+										$query = "SELECT Fname, Lname, College, Position, TotalPoints, TotalAssists, GamesPlayed, TeamName FROM Player, Team, PlayerStats WHERE PlayerStats.PlayerID = Player.PlayerID";
 
 										$result = $sql->query($query);
 										if ($result->num_rows > 0){
 											while($row = $result->fetch_assoc()){
+												if ($row['TeamName'] = $_GET["submit"]){
 												echo $row['Fname'] . ' ' . $row['Lname'] . '  College: ' . $row['College'] . '  Position: ' . $row['Position'] . '  Total Points: ' . $row['TotalPoints'];
 												echo "<br>";
+												}
+
 											}
 										}
 									?>
