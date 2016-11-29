@@ -59,7 +59,7 @@
 										if($sql->connect_errno)
 											die("Connection to MySQL database failed: " . $sql->connect_error);
 									
-										$query = "SELECT Fname, Lname, College, Position, TotalPoints, TotalAssists, GamesPlayed FROM Player, Team, PlayerStats WHERE PlayerStats.PlayerID = Player.PlayerID";
+										$query = "SELECT Fname, Lname, College, Position, TotalPoints, TotalAssists, GamesPlayed FROM Player, Team, PlayerStats WHERE PlayerStats.PlayerID = Player.PlayerID AND Team.TeamName = " $_GET['submit'];
 
 										$result = $sql->query($query);
 										if ($result->num_rows > 0){
