@@ -62,41 +62,23 @@
 											die("Connection to MySQL database failed: " . $sql->connect_error);
 									?>
 
-
 										<tr>
-											<th>Rank</th>
-											<th>Team</th>
-											<th>Wins</th>
-											<th>Losses</th>
+											<th>First Name</th>
+											<th>Last Name</th>
+											<th>College</th>
+											<th>Position</th>
 										</tr>
 
 
 									<?php
-										$query = "SELECT TeamRank, TeamName, Wins, Losses FROM Standings, Team WHERE Standings.TeamNo = Team.TeamNo ORDER BY Wins DESC";
+										$query = "SELECT Fname, Lname, College, Poistion, TotalPoints, TotalAssists, GamesPlayed FROM Player, Team, PlayerStats WHERE PlayerStats.PlayerID == Player.PlayerID";
 
 										$result = $sql->query($query);
-										$wins = 0;
 										if ($result->num_rows > 0){
 											while($row = $result->fetch_assoc()){
-												if ($wins == $row["Wins"]){
-													$y++;
-												}else{
-													$y = 0;
-												}
-									?>
-									<tr>
-										<td><?=($x++ - $y)?></td>
-										<td><a href="ViewTeamPlayers.php"><?=$row["TeamName"]?></a></td>
-										<td><?=$row["Wins"]?></td>
-										<td><?=$row["Losses"]?></td>
-									</tr>
-									<?php
-												$wins = $row["Wins"];
+												echo $row['Fname'] . ' ' . $row['Lname'] . '  College: ' . $row['College'] . '  Position: ' . $row['Position'] . '  Total Points: ' . $row['TotalPoints'];
 											}
-										} else {
-											echo "0 results";
 										}
-										
 									?>
 								</table>
 							</section>
