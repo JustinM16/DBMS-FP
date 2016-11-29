@@ -17,8 +17,8 @@
 	<?php
 	if(isset($_POST['submit'])){
 		if(!isset($_POST['confirm'])){
-			//$sql = new mysqli("localhost", "root", "x9fN#DXy", "LeagueData");
-			$sql = new mysqli("localhost", "root", "", "LeagueData");
+			$sql = new mysqli("localhost", "root", "x9fN#DXy", "LeagueData");
+			//$sql = new mysqli("localhost", "root", "", "LeagueData");
 			if($sql->connect_errno)
 				die("Connection to MySQL database failed: " . $sql->connect_error);
 			$query = "INSERT INTO Player(TeamNo, Fname, Lname, College, Position) VALUES(10, '".str_replace("'", "\\'", $_POST['Fname'])."', '".str_replace("'", "\\'", $_POST['Lname'])."', '".str_replace("'", "\\'", $_POST['College'])."', '".str_replace("'", "\\'", $_POST['Position'])."')";
