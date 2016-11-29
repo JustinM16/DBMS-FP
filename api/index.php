@@ -3,8 +3,8 @@
 header('Content-Type: application/json');
 $response = array();
 
-//$sql = mysqli_connect("localhost", "root", "x9fN#DXy", "LeagueData");
-$sql = mysqli_connect("localhost", "root", "", "LeagueData");
+$sql = mysqli_connect("localhost", "root", "x9fN#DXy", "LeagueData");
+//$sql = mysqli_connect("localhost", "root", "", "LeagueData");
 if($sql->connect_errno)
 	die("Connection to MySQL database failed: " . $sql->connect_error);
 
