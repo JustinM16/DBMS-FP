@@ -78,12 +78,17 @@
 									</p>
 									<p><input type='submit' name='submit' value='Insert Player'></p>
 								</form>
+								<form action="update.php" method="POST">
+									<p><input type='submit' name='submit' value='Randomize Teams 1-9'></p>
+								</form>
 							</section>
 							<section class="right-content">
 								<?php
 									if(isset($_POST['confirm'])){
 										if($_POST['confirm'] === '1')
 											echo "<p><strong>Player added to Team 10 successfully.</strong></p>";
+										if($_POST['confirm'] === '2')
+											echo "<p><strong>Team 1-9 players randomized.</strong></p>";
 										else
 											echo "<p><strong>Insert new player failed.<br>Query: ".$_POST['query']."</strong></p>";
 									}
