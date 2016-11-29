@@ -55,7 +55,8 @@
 							<section class="left-content">
 								<table>
 									<?php
-										echo $_GET["submit"];	
+										echo $_GET["submit"];
+										echo "<br>";
 
 										$sql = new mysqli("localhost", "root", "x9fN#DXy", "LeagueData");
 										if($sql->connect_errno)
