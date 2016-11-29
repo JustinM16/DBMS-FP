@@ -44,7 +44,7 @@
 								<h1><img src="images/BBLogo-4.gif" style="float:left;width:70px;height:70px;" href="index.html" class="current-page-item" id="logo"><a href="index.html" class="current-page-item" id="logo">League-O-Matic 3000</a></h1>
 								<nav id="nav">
 									<a href="IntroPage.html">Views</a>
-									<a href="MakeTeamPage.php">Add Player</a>
+									<a href="MakeTeamPage.php">Add Players</a>
 									<a href="CurrTeamRanks.php">Current Team Rankings</a>
 									<a href="MatchSchedulePage.php" class="current-page-item">Match Schedule</a>
 								</nav>
