@@ -62,15 +62,14 @@
 										if($sql->connect_errno)
 											die("Connection to MySQL database failed: " . $sql->connect_error);
 									
-										$query = "SELECT Fname, Lname, College, Position, TotalPoints, TotalAssists, GamesPlayed, TeamName FROM Player, Team, PlayerStats WHERE PlayerStats.PlayerID = Player.PlayerID";
+										$query = "SELECT Fname, Lname, College, Position, TotalPoints, TotalAssists, GamesPlayed, TeamName FROM Player, Team, PlayerStats WHERE PlayerStats.PlayerID = Player.PlayerID AND Team.TeamNo = Player.TeamNo AND Team.TeamName LIKE '".$_GET['submit']."'";
 
 										$result = $sql->query($query);
 										if ($result->num_rows > 0){
 											while($row = $result->fetch_assoc()){
-												if ($row['TeamName'] == $_GET["submit"]){
-													echo $row['Fname'] . ' ' . $row['Lname'] . '  College: ' . $row['College'] . '  Position: ' . $row['Position'] . '  Total Points: ' . $row['TotalPoints'] . '      TeamName: '. $row['TeamName'];
-													echo "<br>";
-												}
+												echo $row['Fname'] . ' ' . $row['Lname'] . '  College: ' . $row['College'] . '  Position: ' . $row['Position'] . '  Total Points: ' . $row['TotalPoints'] . '      TeamName: '. $row['TeamName'];
+												echo "<br>";
+												
 											}
 										}
 									?>
