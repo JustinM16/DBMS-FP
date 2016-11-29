@@ -87,7 +87,7 @@
 										?>
 										<tr>
 											<td><?=($x++ - $y)?></td>
-											<td><input type="submit" name='submit' id=<?=$row["TeamNo"] ?>><?=$row["TeamName"]?></input></td>
+											<td><input type="submit" name='submit' value=<?=$row["TeamName"]?>></input></td>
 											<td><?=$row["Wins"]?></td>
 											<td><?=$row["Losses"]?></td>
 										</tr>
