@@ -55,13 +55,15 @@
 							<section class="left-content">
 								<table>
 									<?php
+
+										$Team = $_GET["submit"];
+										$Team = mysql_real_escape_string($Team);
+
 										$sql = new mysqli("localhost", "root", "x9fN#DXy", "LeagueData");
 										if($sql->connect_errno)
 											die("Connection to MySQL database failed: " . $sql->connect_error);
 									
-										$query = "SELECT Fname, Lname, College, Position, TotalPoints, TotalAssists, GamesPlayed FROM Player, Team, PlayerStats WHERE PlayerStats.PlayerID = Player.PlayerID";
-
-										echo $_GET["submit"];
+										$query = "SELECT Fname, Lname, College, Position, TotalPoints, TotalAssists, GamesPlayed FROM Player, Team, PlayerStats WHERE PlayerStats.PlayerID = Player.PlayerID AND Team.TeamName LIKE '$Team'";
 
 										$result = $sql->query($query);
 										if ($result->num_rows > 0){
