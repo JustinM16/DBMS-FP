@@ -53,6 +53,7 @@
 						<div class="8u 12u(mobile)">
 
 							<section class="left-content">
+								Click on Team Name to view the players!
 								<form action="ViewTeamPlayers.php" method='get'>
 									<table>
 										<?php
