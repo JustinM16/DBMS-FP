@@ -24,6 +24,13 @@
 			th {
 				font-weight: bold;
 			}
+			a {
+				color: inherit;
+				text-decoration: none;
+			}
+			a:hover {
+				text-decoration: underline;
+			}
 		</style>
 	</head>
 	<body>
@@ -51,7 +58,7 @@
 			<div id="main">
 				<div class="container">
 					<div class="row main-row">
-						<div class="8u">
+						<div class="12u">
 							<section>
 								<table>
 									<?php
@@ -77,14 +84,14 @@
 											<td><?=$row['GameTime']?></td>
 											<?php
 												$hresult = mysqli_fetch_array(mysqli_query($sql, "Select TeamName, City from Team where TeamNo=" . $row['HomeTeamNo']));
-												$vresult = mysqli_fetch_array(mysqli_query($sql, "Select TeamName from Team where TeamNo=" . $row['VisitorTeamNo']));
+												$vresult = mysqli_fetch_array(mysqli_query($sql, "Select TeamName, City from Team where TeamNo=" . $row['VisitorTeamNo']));
 												$lresult = mysqli_fetch_array(mysqli_query($sql, "Select ArenaName, Address, City from Arena where ArenaNo=" . $row['Arena']));
-												$wresult = mysqli_fetch_array(mysqli_query($sql, "Select TeamName from Team where TeamNo=" . $row['WinningTeamNo']));
+												$wresult = mysqli_fetch_array(mysqli_query($sql, "Select TeamName, City from Team where TeamNo=" . $row['WinningTeamNo']));
 											?>
-											<td><?=$hresult['City']?> <?=$hresult['TeamName']?></td>
-											<td><?=$vresult['TeamName']?></td>
-											<td><?=$lresult['ArenaName']?>: <?=$lresult['Address']?>, <?=$lresult['City']?></td>
-											<td><?=$wresult['TeamName']?></td>
+											<td><a href="ViewTeamPlayers.php?submit=<?=$hresult['TeamName']?>"><?=$hresult['City']?> <?=$hresult['TeamName']?></a></td>
+											<td><a href="ViewTeamPlayers.php?submit=<?=$vresult['TeamName']?>"><?=$vresult['City']?> <?=$vresult['TeamName']?></a></td>
+											<td><?=$lresult['ArenaName']?><br /><?=$lresult['Address']?>, <?=$lresult['City']?></td>
+											<td><a href="ViewTeamPlayers.php?submit=<?=$wresult['TeamName']?>"><?=$wresult['City']?> <?=$wresult['TeamName']?></a></td>
 										</tr>
 									<?php endwhile; ?>
 								</table>
