@@ -31,7 +31,6 @@
 			?>
 			</form>
 			<script type="text/javascript">
-				alert("<?=$query?>");
 				document.getElementById('conForm').submit();
 			</script><?php
 		}
