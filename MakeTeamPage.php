@@ -21,8 +21,21 @@
 			//$sql = new mysqli("localhost", "root", "", "LeagueData");
 			if($sql->connect_errno)
 				die("Connection to MySQL database failed: " . $sql->connect_error);
-			$query = "INSERT INTO Player(TeamNo, Fname, Lname, College, Position) VALUES(10, '".str_replace("'", "\\'", $_POST['Fname'])."', '".str_replace("'", "\\'", $_POST['Lname'])."', '".str_replace("'", "\\'", $_POST['College'])."', '".str_replace("'", "\\'", $_POST['Position'])."')";
+			
+			$fname = str_replace("'", "\\'", $_POST['Fname']);
+			$lname = str_replace("'", "\\'", $_POST['Lname']);
+			$college = str_replace("'", "\\'", $_POST['College']);
+			$position = str_replace("'", "\\'", $_POST['Position']);
+			$query = "INSERT INTO Player(TeamNo, Fname, Lname, College, Position) VALUES(10, '$fname', '$lname', '$college', '$position')";
 			$a = mysqli_query($sql, $query);
+			
+			if($a){
+				$newPlayer = mysqli_fetch_array(mysqli_query($sql, "Select PlayerID from Player where Fname='$fname' AND Lname='$lname' AND College='$college' AND Position='$position'"));
+				$query = "INSERT INTO PlayerStats(PlayerID, TotalPoints, TotalAssists, GamesPlayed) VALUES(".$newPlayer["PlayerID"].", ".rand(0, 100).", ".rand(0, 100).", ".rand(0, 100).")";
+				$a = mysqli_query($sql, $query);
+			}
+
+
 			?>
 			<form id="conForm" action="MakeTeamPage.php" method="post">
 			<?php
@@ -31,6 +44,7 @@
 			?>
 			</form>
 			<script type="text/javascript">
+				alert("<?="Select PlayerID from Player where Fname='$fname' AND Lname='$lname' AND College='$college' AND Position='$position'"?>");
 				document.getElementById('conForm').submit();
 			</script><?php
 		}
@@ -87,7 +101,7 @@
 									if(isset($_POST['confirm'])){
 										if($_POST['confirm'] === '1')
 											echo "<p><strong>Player added to Team 10 successfully.</strong></p>";
-										if($_POST['confirm'] === '2')
+										else if($_POST['confirm'] === '2')
 											echo "<p><strong>Team 1-9 players randomized.</strong></p>";
 										else
 											echo "<p><strong>Insert new player failed.<br>Query: ".$_POST['query']."</strong></p>";
