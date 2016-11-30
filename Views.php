@@ -42,7 +42,7 @@
 
 						<tr>
 							<th>Name</th>
-							<th>TotalPoints</th>
+							<th>Total Points</th>
 						</tr>
 
 
@@ -51,7 +51,7 @@
 							if($sql->connect_errno)
 								die("Connection to MySQL database failed: " . $sql->connect_error);
 
-							$query = "SELECT Fname, Lname, TotalPoints FROM 'TopPlayers' ORDER BY TotalPoints DESC";
+							$query = "SELECT Fname, Lname, TotalPoints FROM TopPlayers ORDER BY TotalPoints DESC";
 						?>
 
 							<section class="left-content">
