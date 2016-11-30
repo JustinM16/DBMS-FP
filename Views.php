@@ -12,6 +12,19 @@
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<style>
+			table {
+				border-collapse: collapse;
+				width: 100%;
+			}
+			table, th, td {
+				border: 1px solid black;
+				padding: 5px;
+			}
+			th {
+				font-weight: bold;
+			}
+		</style>
 	</head>
 	<body>
 		<div id="page-wrapper">
