@@ -61,7 +61,7 @@
 						?>
 
 							<section class="left-content">
-							<h1>Top Players:</h1>
+							<h1>Season:</h1>
 								<table>
 									<tr>
 										<th>Game Time</th>
