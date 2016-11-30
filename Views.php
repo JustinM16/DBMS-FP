@@ -62,6 +62,7 @@
 						?>
 
 							<section class="left-content">
+							Top Players: 
 								<table>
 									<tr>
 										<th>Name</th>
