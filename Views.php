@@ -40,12 +40,6 @@
 					<div class="row main-row">
 						<div class="8u 12u(mobile)">
 
-						<tr>
-							<th>Name</th>
-							<th>Total Points</th>
-						</tr>
-
-
 						<?php
 							$sql = new mysqli("localhost", "root", "x9fN#DXy", "LeagueData");
 							if($sql->connect_errno)
@@ -55,20 +49,25 @@
 						?>
 
 							<section class="left-content">
-
-								<?php
-									$result = $sql->query($query);
-									if ($result->num_rows > 0){
-										while($row = $result->fetch_assoc()){
-									?>
+								<table>
 									<tr>
-										<td><?php echo $row['Fname'] . ' ' . $row['Lname']; ?></td>
-										<td><?php echo $row['TotalPoints'];?></td>
-									</tr>	
-								<?php
+										<th>Name</th>
+										<th>Total Points</th>
+									</tr>
+									<?php
+										$result = $sql->query($query);
+										if ($result->num_rows > 0){
+											while($row = $result->fetch_assoc()){
+										?>
+										<tr>
+											<td><?php echo $row['Fname'] . ' ' . $row['Lname']; ?></td>
+											<td><?php echo $row['TotalPoints'];?></td>
+										</tr>	
+									<?php
+											}
 										}
-									}
-								?>
+									?>
+								</table>
 
 							</section>
 
