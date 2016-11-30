@@ -44,7 +44,6 @@
 			?>
 			</form>
 			<script type="text/javascript">
-				alert("<?="Select PlayerID from Player where Fname='$fname' AND Lname='$lname' AND College='$college' AND Position='$position'"?>");
 				document.getElementById('conForm').submit();
 			</script><?php
 		}
