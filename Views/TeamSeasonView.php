@@ -57,15 +57,17 @@
 							if($sql->connect_errno)
 								die("Connection to MySQL database failed: " . $sql->connect_error);
 
-							$query = "SELECT Fname, Lname, TotalPoints FROM TopPlayers ORDER BY TotalPoints DESC";
+							$query = "SELECT * FROM TeamSeason";
 						?>
 
 							<section class="left-content">
 							<h1>Top Players:</h1>
 								<table>
 									<tr>
-										<th>Name</th>
-										<th>Total Points</th>
+										<th>Game Time</th>
+										<th>Home Team</th>
+										<th>Visiting Team</th>
+										<th>Arena</th>
 									</tr>
 									<?php
 										$result = $sql->query($query);
@@ -73,8 +75,10 @@
 											while($row = $result->fetch_assoc()){
 										?>
 										<tr>
-											<td><?php echo $row['Fname'] . ' ' . $row['Lname']; ?></td>
-											<td><?php echo $row['TotalPoints'];?></td>
+											<td><?php echo $row['Game Time']?></td>
+											<td><?php echo $row['Home Team'];?></td>
+											<td><?php echo $row['Visiting Team'];?></td>
+											<td><?php echo $row['Arena'];?></td>
 										</tr>	
 									<?php
 											}
