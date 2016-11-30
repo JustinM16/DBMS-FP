@@ -39,7 +39,13 @@
 				<div class="container">
 					<div class="row main-row">
 						<div class="8u 12u(mobile)">
+						<?php
+							$sql = new mysqli("localhost", "root", "x9fN#DXy", "LeagueData");
+							if($sql->connect_errno)
+								die("Connection to MySQL database failed: " . $sql->connect_error);
 
+							$query = "SELECT FROM WHERE";
+						?>
 
 							<section class="left-content">
 
