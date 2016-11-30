@@ -62,7 +62,7 @@
 						?>
 
 							<section class="left-content">
-							Top Players: 
+							<h1>Top Players:</h1>
 								<table>
 									<tr>
 										<th>Name</th>
