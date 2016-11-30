@@ -83,7 +83,6 @@
 								</table>
 
 							</section>
-							
 							<section class="right-content">
 							</section>
 						</div>
