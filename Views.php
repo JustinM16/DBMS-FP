@@ -44,7 +44,7 @@
 							if($sql->connect_errno)
 								die("Connection to MySQL database failed: " . $sql->connect_error);
 
-							$query = "SELECT";
+							//$query = "SELECT * FROM ";
 						?>
 
 							<section class="left-content">
