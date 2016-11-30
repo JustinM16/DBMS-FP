@@ -52,8 +52,9 @@
 				<div class="container">
 					<div class="row main-row">
 						<div class="8u 12u(mobile)">
-
 						<?php
+						if isset($_GET['submit']){
+							if ($_GET['submit'] == 'TopPlayers'){}
 							$sql = new mysqli("localhost", "root", "x9fN#DXy", "LeagueData");
 							if($sql->connect_errno)
 								die("Connection to MySQL database failed: " . $sql->connect_error);
@@ -84,16 +85,14 @@
 								</table>
 
 							</section>
-
+							<?php
+									}
+								}
+							?>
 							<section class="right-content">
-
-
-
-
-
-
-
-	
+							<form action="Views.php" method="get">
+								<input type="submit" style="background:none; border:none;" name='submit' value='TopPlayers'></input>
+							</form>	
 							</section>
 						</div>
 					</div>
