@@ -44,18 +44,23 @@
 							if($sql->connect_errno)
 								die("Connection to MySQL database failed: " . $sql->connect_error);
 
-							//$query = "SELECT * FROM ";
+							$query = "SELECT * FROM 'TopPlayers'";
 						?>
 
 							<section class="left-content">
 
-
-
-
-
-
-
-
+										<?php
+										$result = $sql->query($query);
+										if ($result->num_rows > 0){
+											while($row = $result->fetch_assoc()){
+										?>
+										<tr>
+											<td><?php echo $row;?></td>
+										</tr>	
+										<?php
+											}
+										}
+										?>
 
 							</section>
 
