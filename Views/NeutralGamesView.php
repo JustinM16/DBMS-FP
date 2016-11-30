@@ -57,7 +57,7 @@
 							if($sql->connect_errno)
 								die("Connection to MySQL database failed: " . $sql->connect_error);
 
-							$query = "SELECT * FROM HomeWinners";
+							$query = "SELECT * FROM NeutralGames";
 						?>
 
 							<section class="left-content">
