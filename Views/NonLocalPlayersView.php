@@ -61,7 +61,7 @@
 						?>
 
 							<section class="left-content">
-							<h1>Season:</h1>
+							<h1>Non-local players:</h1>
 								<table>
 									<tr>
 										<th>Name</th>

@@ -61,7 +61,7 @@
 						?>
 
 							<section class="left-content">
-							<h1>Season:</h1>
+							<h1>Team win/loss records:</h1>
 								<table>
 									<tr>
 										<th>Team name</th>

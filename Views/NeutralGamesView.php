@@ -61,7 +61,7 @@
 						?>
 
 							<section class="left-content">
-							<h1>Season:</h1>
+							<h1>Neutral game sites:</h1>
 								<table>
 									<tr>
 										<th>Match #</th>
