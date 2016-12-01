@@ -10,8 +10,8 @@ if(isset($_POST['submit'])){
 	$sql = new mysqli("localhost", "root", "x9fN#DXy", "LeagueData");
 	if($sql->connect_errno)
 		die("Connection to MySQL database failed: " . $sql->connect_error);
-	$a = $sql->query("DELETE FROM PlayerStats;");
-	$a = $sql->query("DELETE FROM Player;");
+	$a = $sql->query("DELETE FROM PlayerStats WHERE PlayerID <= 45;");
+	$a = $sql->query("DELETE FROM Player WHERE PlayerID <= 45;");
 	if($sql->connect_errno)
 		die("Delete failed: " . $sql->connect_error);
 
